@@ -1,6 +1,7 @@
 # Ray-tracing
 
 - Detalles a tener en cuenta:
+    * Ni idea de si el código funciona tal cual, pero si no es el caso debes seguir las instrucciones del inicio de: https://raytracing.github.io/books/RayTracingInOneWeekend.html
     * Colores no implementados, la coloración sólo es un reflejo de las normales de la superficie (vamos que es mera coincidencia que el suelo sea verde).
     * El suelo es una esfera, un poco ridículo lo sé.
     * Todo está más o menos comentado excepto main.cpp y camera.h, ya que son los que parecen tener más cambios a futuro.
@@ -16,6 +17,7 @@
     * Ver posibilidad de implementar planos de perimetros limitados.
     * Formato para almacenar objetos de forma externa al código.
     * Paralelizar secciones de imagen mediante OpenMP.
+    * Ver qué hacer con el antialiasing.
 
 - Modificaciones importantes respecto a libro:
     * La clase del libro "rtweekend.h" ha sido cambiada a "header.h" para una mayor comprensión.
