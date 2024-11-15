@@ -1,10 +1,7 @@
-#ifndef VEC3_H
+#ifndef VEC3_H //Include guard, previene que el contenido sea incluido mas de una vez en el programa
 #define VEC3_H
 
-#include <cmath>
-#include <iostream>
-
-//clase vector, usado en muchos componentes del proyecto (RGB, rayos, puntos, etc)
+//Clase vector, usado en muchos componentes del proyecto (RGB, rayos, puntos, etc)
 class vec3 {
   public:
     double e[3];
@@ -47,11 +44,11 @@ class vec3 {
     }
 };
 
-//point3 es alias de vec3, para claridad
+//Point3 es alias de vec3, para claridad
 using point3 = vec3;
 
 
-//funcionalidades varias
+//Funcionalidades varias
 
 inline std::ostream& operator<<(std::ostream& out, const vec3& v) {
     return out << v.e[0] << ' ' << v.e[1] << ' ' << v.e[2];
@@ -97,4 +94,4 @@ inline vec3 unit_vector(const vec3& v) {
     return v / v.length();
 }
 
-#endif
+#endif //Fin include guard
