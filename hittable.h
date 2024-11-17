@@ -1,16 +1,19 @@
 #ifndef HITTABLE_H //Include guard, previene que el contenido sea incluido mas de una vez en el programa
 #define HITTABLE_H
 
+class material;
+
 //Clase para almacenar informacion de intersección entre rayo y elemento
 class hit_record {
   public:
     point3 p;
     vec3 normal;
     double t;
-
     bool front_face;
+    shared_ptr<material> mat;
     //Determina si la cara impactada es frontal y almacena valor de vector normal
     //Vector normal dado debe estar normalizado
+
     void set_face_normal(const ray& r, const vec3& outward_normal) {
         // Sets the hit record normal vector.
         // NOTE: the parameter `outward_normal` is assumed to have unit length.
@@ -28,7 +31,7 @@ class hittable {
   public:
     //Declaracion de destructor virtual, para liberar memoria y cosas de esas
     virtual ~hittable() = default;
-    //Duncion que comprueba si elemento es golpeado por rayo, toma de entrada un rayo, rango de t y un objeto hit_record que almacenará información de intersección si ocurre 
+    //Funcion que comprueba si elemento es golpeado por rayo, toma de entrada un rayo, rango de t y un objeto hit_record que almacenará información de intersección si ocurre 
     virtual bool hit(const ray& r, interval ray_t, hit_record& rec) const = 0;
 };
 

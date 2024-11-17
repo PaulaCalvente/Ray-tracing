@@ -9,15 +9,16 @@
     * Si os da error algún archivo en el editor es un problema de este, el código es completamente funcional debido a las herencias de clases. Igualmente se podrían incluir las clases para que no dé error, pero realmente es innecesario.
 
 - Cambios respecto a código anterior:
-    * Archivos añadidos: header.h, hittable.h, hittable_list.h, sphere.h y camera.h.
-    * Archivos modificados: color.h, main.cpp, ray.h y vec.h.
+    * Archivos añadidos: 
+    * Archivos modificados: 
 
 - Tareas:
     * Intentar simplificar hittable_list.h.
     * Ver posibilidad de implementar planos de perimetros limitados.
     * Formato para almacenar objetos de forma externa al código.
     * Paralelizar secciones de imagen mediante OpenMP.
-    * Ver qué hacer con el antialiasing.
+    * Hacer antialiasing en master.
 
 - Modificaciones importantes respecto a libro:
     * La clase del libro "rtweekend.h" ha sido cambiada a "header.h" para una mayor comprensión.
+    * No se ha implementado antialiasing, para simplificar paralelización.

@@ -7,7 +7,8 @@
 class sphere : public hittable {
   public:
     //Constructor de esfera, recibe centro y radio
-    sphere(const point3& center, double radius) : center(center), radius(std::fmax(0,radius)) {}
+    sphere(const point3& center, double radius, shared_ptr<material> mat)
+      : center(center), radius(std::fmax(0,radius)), mat(mat) {}
     //Función hit de esfera
     bool hit(const ray& r, interval ray_t, hit_record& rec) const override {
         //Vector inicial
@@ -38,13 +39,16 @@ class sphere : public hittable {
         //Vector normal saliente
         vec3 outward_normal = (rec.p - center) / radius;
         rec.set_face_normal(r, outward_normal);
+        //Material
+        rec.mat = mat;
 
         return true;
     }
-  //Almacena centro y radio
+  //Almacena centro, radio y material
   private:
     point3 center;
     double radius;
+    shared_ptr<material> mat;
 };
 
 #endif
