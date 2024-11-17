@@ -7,19 +7,22 @@
 //Clase camara, la cual incluye el renderizado, los valores de la camara y el coloreado
 class camera {
   public:
-    double aspect_ratio = 1.0;  // Ratio of image width over height
-    int    image_width  = 100;  // Rendered image width in pixel count
-    int    samples_per_pixel = 10;   // Count of random samples for each pixel
-    int    max_depth         = 10;   // Maximum number of ray bounces into scene
 
-    double vfov = 90;  // Vertical view angle (field of view)
-    point3 lookfrom = point3(0,0,0);   // Point camera is looking from
-    point3 lookat   = point3(0,0,-1);  // Point camera is looking at
-    vec3   vr      = vec3(0,1,0);     // Camera-relative "up" direction
+    //Parametros de la camara
+    double aspect_ratio = 1.0;          //Ratio de la imagen
+    int    image_width  = 100;          //Longitud de imagen renderizada
+    int    samples_per_pixel = 10;      //Numero de rayos aleatorios por pixel
+    int    max_depth         = 10;      //Rebotes maximos por rayo
 
-    double defocus_angle = 0;  // Variation angle of rays through each pixel
-    double focus_dist = 10;    // Distance from camera lookfrom point to plane of perfect focus
+    double vfov = 90;                   // Angulo vertical (fov)
+    point3 lookfrom = point3(0,0,0);    //Punto central de camara
+    point3 lookat   = point3(0,0,-1);   //Punto objetivo de camara
+    vec3   vr      = vec3(0,1,0);       //Vector de referencia de la camara
 
+    double defocus_angle = 0;           //Angulo de variacion por pixel
+    double focus_dist = 10;             //Distancia entre camara y punto enfocado
+    
+    //Funcion de renderizado
     void render(const hittable& world) {
         initialize();
 
@@ -33,7 +36,6 @@ class camera {
                     ray r = get_ray(i, j);
                     pixel_color += ray_color(r, max_depth, world);
                 }
-                //write_color(std::cout, pixel_samples_scale * pixel_color);
                 write_color(std::cout, pixel_color / samples_per_pixel); //Media de todos los rayos del pixel
             }
         }
@@ -41,94 +43,83 @@ class camera {
         std::clog << "\rDone.                 \n";
     }
 
+  //Parametros privados de la camara
   private:
-    int    image_height;   // Rendered image height
-    //double pixel_samples_scale;  // Color scale factor for a sum of pixel samples
-    point3 center;         // Camera center
-    point3 pixel00_loc;    // Location of pixel 0, 0
-    vec3   pixel_delta_u;  // Offset to pixel to the right
-    vec3   pixel_delta_v;  // Offset to pixel below
-    vec3   u, v, w;        // Camera frame basis vectors
-    vec3   defocus_disk_u;       // Defocus disk horizontal radius
-    vec3   defocus_disk_v;       // Defocus disk vertical radius
+    int    image_height;        //altura de imagen renderizada
+    point3 center;              //Centro de camara
+    point3 pixel00_loc;         //Localizacion de pixel (0,0) (del viewport)
+    vec3   pixel_delta_u;       //Desviacion de pixel a la derecha
+    vec3   pixel_delta_v;       //Desviacion de pixel hacia abajo
+    vec3   u, v, w;             //Vectores base de la camara
+    vec3   defocus_disk_u;      //Radio horizontal de disco de desenfoque
+    vec3   defocus_disk_v;      //Radio vertical de disco de desenfoque
 
+    //Funcion que inicializa el viewport y la camara
+    //El viewport es un plano de referencia que se usa para determinar la direccion de los vectores segun el pixel
     void initialize() {
         image_height = int(image_width / aspect_ratio);
         image_height = (image_height < 1) ? 1 : image_height;
-        //pixel_samples_scale = 1.0 / samples_per_pixel;//MODIFICAR
 
         center = lookfrom;
 
-        // Determine viewport dimensions.
+        //Dimensiones del viewport
         auto theta = degrees_to_radians(vfov);
         auto h = std::tan(theta/2);
         auto viewport_height = 2 * h * focus_dist;
         auto viewport_width = viewport_height * (double(image_width)/image_height);
 
-        // Calculate the u,v,w unit basis vectors for the camera coordinate frame.
+        //Vectores base unitarios de camara
         w = unit_vector(lookfrom - lookat);
         u = unit_vector(cross(vr, w));
         v = cross(w, u);
 
-        // Calculate the vectors across the horizontal and down the vertical viewport edges.
-        vec3 viewport_u = viewport_width * u;    // Vector across viewport horizontal edge
-        vec3 viewport_v = viewport_height * -v;  // Vector down viewport vertical edge
+        //Vectores de direccion de pixeles del viewport
+        vec3 viewport_u = viewport_width * u;
+        vec3 viewport_v = viewport_height * -v;
 
-        // Calculate the horizontal and vertical delta vectors from pixel to pixel.
+        //Distancia entre pixeles del viewport (no son realmente pixeles, pero para que se entienda)
         pixel_delta_u = viewport_u / image_width;
         pixel_delta_v = viewport_v / image_height;
 
-        // Calculate the location of the upper left pixel.
+        //Inicializacion del viewport
         auto viewport_upper_left = center - (focus_dist * w) - viewport_u/2 - viewport_v/2;
         pixel00_loc = viewport_upper_left + 0.5 * (pixel_delta_u + pixel_delta_v);
 
-        // Calculate the camera defocus disk basis vectors.
+        //Calculo de vectores base de disco de desenfoque
         auto defocus_radius = focus_dist * std::tan(degrees_to_radians(defocus_angle / 2));
         defocus_disk_u = u * defocus_radius;
         defocus_disk_v = v * defocus_radius;
     }
 
-    //FUNCIONES PARA ANTIALIASING MODIFICADA, POSIBLEMENTE DE ERROR, REVISAR
+    //Funcion que retorna rayo correspondiente a pixel (i,j)
+    //No se ha implementado antialiasing
     ray get_ray(int i, int j) const {
-        // Construct a camera ray originating from the defocus disk and directed at a randomly
-        // sampled point around the pixel location i, j.
         
         auto pixel_sample = pixel00_loc
                           + (i * pixel_delta_u)
                           + (j * pixel_delta_v);
-        
-        /*
-        auto offset = sample_square();
-        auto pixel_sample = pixel00_loc
-                          + ((i + offset.x()) * pixel_delta_u)
-                          + ((j + offset.y()) * pixel_delta_v);
-        */
+
         auto ray_origin = (defocus_angle <= 0) ? center : defocus_disk_sample();
         auto ray_direction = pixel_sample - ray_origin;
 
         return ray(ray_origin, ray_direction);
     }
-    //MAS FUNCIONES DE ANTIALIASING
-    /*
-    vec3 sample_square() const {
-        // Returns the vector to a random point in the [-.5,-.5]-[+.5,+.5] unit square.
-        return vec3(random_double() - 0.5, random_double() - 0.5, 0);
-    }
-    */
 
+    //Funcion que retorna un punto aleatorio en el disco de desenfoque de la camara
     point3 defocus_disk_sample() const {
-        // Returns a random point in the camera defocus disk.
         auto p = random_in_unit_disk();
         return center + (p[0] * defocus_disk_u) + (p[1] * defocus_disk_v);
     }
 
+    //Funcio que determina color de rayo mediante recursividad, de ahi que se use el parametro depth (profundidad)
     color ray_color(const ray& r, int depth, const hittable& world) const {
-        // If we've exceeded the ray bounce limit, no more light is gathered.
+        //Si se excede limite de rebotes, no dar luz
         if (depth <= 0)
             return color(0,0,0);
         
         hit_record rec;
 
+        //Si un elemento del mundo es golpeado calcular color
        if (world.hit(r, interval(0.001, infinity), rec)) { //Mas problemas con coma flotante
             ray scattered;
             color attenuation;
