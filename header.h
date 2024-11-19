@@ -8,18 +8,17 @@
 #include <cstdlib>
 #include <random>
 
-//Cosas de C++ (diria que se usan mayormente en hittable_list.h)
-
+//Cosas de C++
 using std::make_shared;
 using std::shared_ptr;
 
 //Constantes
-
 const double infinity = std::numeric_limits<double>::infinity();
 const double pi = 3.1415926535897932385;
 
 //Funciones varias
 
+//Transforma grados a radianes
 inline double degrees_to_radians(double degrees) {
     return degrees * pi / 180.0;
 }
@@ -36,8 +35,12 @@ inline double random_double(double min, double max) {
     return min + (max-min)*random_double();
 }
 
-//Cabeceras comunes
+//Retorna entero aleatorio entre [min,max]
+inline int random_int(int min, int max) {
+    return int(random_double(min, max+1));
+}
 
+//Cabeceras comunes
 #include "color.h"
 #include "ray.h"
 #include "vec3.h"

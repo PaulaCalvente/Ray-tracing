@@ -13,8 +13,9 @@ class camera {
     int    image_width  = 100;          //Longitud de imagen renderizada
     int    samples_per_pixel = 10;      //Numero de rayos aleatorios por pixel
     int    max_depth         = 10;      //Rebotes maximos por rayo
+    color  background;                  // Scene background color
 
-    double vfov = 90;                   // Angulo vertical (fov)
+    double vfov = 90;                   //Angulo vertical (fov)
     point3 lookfrom = point3(0,0,0);    //Punto central de camara
     point3 lookat   = point3(0,0,-1);   //Punto objetivo de camara
     vec3   vr      = vec3(0,1,0);       //Vector de referencia de la camara
@@ -27,11 +28,12 @@ class camera {
         initialize();
 
         std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
-
+        //Recorre cada pixel
         for (int j = 0; j < image_height; j++) {
             std::clog << "\rScanlines remaining: " << (image_height - j) << ' ' << std::flush;
             for (int i = 0; i < image_width; i++) {
                 color pixel_color(0,0,0);
+                //Lanza numero de rayos establecido por pixel
                 for (int sample = 0; sample < samples_per_pixel; sample++) {
                     ray r = get_ray(i, j);
                     pixel_color += ray_color(r, max_depth, world);
@@ -111,7 +113,7 @@ class camera {
         return center + (p[0] * defocus_disk_u) + (p[1] * defocus_disk_v);
     }
 
-    //Funcio que determina color de rayo mediante recursividad, de ahi que se use el parametro depth (profundidad)
+    //Funcion que determina color de rayo mediante recursividad, de ahi que se use el parametro depth (profundidad)
     color ray_color(const ray& r, int depth, const hittable& world) const {
         //Si se excede limite de rebotes, no dar luz
         if (depth <= 0)
@@ -119,18 +121,23 @@ class camera {
         
         hit_record rec;
 
-        //Si un elemento del mundo es golpeado calcular color
-       if (world.hit(r, interval(0.001, infinity), rec)) { //Mas problemas con coma flotante
-            ray scattered;
-            color attenuation;
-            if (rec.mat->scatter(r, rec, attenuation, scattered))
-                return attenuation * ray_color(scattered, depth-1, world);
-            return color(0,0,0);
-        }
+        //Si no se golpea nada, retornar color de fondo
+        if (!world.hit(r, interval(0.001, infinity), rec))
+            return background;
 
-        vec3 unit_direction = unit_vector(r.direction());
-        auto a = 0.5*(unit_direction.y() + 1.0);
-        return (1.0-a)*color(1.0, 1.0, 1.0) + a*color(0.5, 0.7, 1.0);
+        //Valores de la  luz correspondiente al rayo
+        ray scattered;
+        color attenuation;
+        color color_from_emission = rec.mat->emitted(rec.u, rec.v, rec.p);
+
+        //Si la luz no es dispersada se trata de un objeto emisor de luz
+        if (!rec.mat->scatter(r, rec, attenuation, scattered))
+            return color_from_emission;
+
+        //Color a partir de la luz dispersada
+        color color_from_scatter = attenuation * ray_color(scattered, depth-1, world);
+
+        return color_from_emission + color_from_scatter;
     }
 };
 

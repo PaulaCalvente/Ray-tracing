@@ -1,6 +1,7 @@
 #ifndef HITTABLE_LIST_H
 #define HITTABLE_LIST_H
 
+#include "aabb.h"
 #include "hittable.h"
 
 #include <vector>
@@ -10,6 +11,7 @@ class hittable_list : public hittable {
   public:
     std::vector<shared_ptr<hittable>> objects;
 
+    //Constructores
     hittable_list() {}
     hittable_list(shared_ptr<hittable> object) { add(object); }
 
@@ -19,6 +21,7 @@ class hittable_list : public hittable {
     //Funcion que añade objeto
     void add(shared_ptr<hittable> object) {
         objects.push_back(object);
+        bbox = aabb(bbox, object->bounding_box());
     }
     //Funcion que comprueba si algun elemento del mundo es golpeado
     bool hit(const ray& r, interval ray_t, hit_record& rec) const override {
@@ -36,6 +39,11 @@ class hittable_list : public hittable {
 
         return hit_anything;
     }
+
+    aabb bounding_box() const override { return bbox; }
+
+  private:
+    aabb bbox;
 };
 
 #endif

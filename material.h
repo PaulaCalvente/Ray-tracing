@@ -2,13 +2,18 @@
 #define MATERIAL_H
 
 #include "hittable.h"
+
 //Clase abstracta para materiales
 class material {
   public:
     virtual ~material() = default;
-    //Funcion a implementar que simula interaccion de rayo sobre un punto de material
-    //Recibe como entradas un rayo e informacion sobre el punto de impacto, retorna mediante referencias el color o
-    //intensidad reflejada y el rayo reflejado por el material, y retorna como valor si el rayo se refleja o no
+
+    //Funcion a implementar que determina cantidad de luz emitida por un elemento (por defecto es 0)
+    virtual color emitted(double u, double v, const point3& p) const {
+        return color(0,0,0);
+    }
+    
+    //Funcion a implementar que determina cantidad, intensidad y direccion de iluminacion reflejada
     virtual bool scatter(const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered) const {
         return false;
     }
@@ -19,6 +24,7 @@ class lambertian : public material {
   public:
     lambertian(const color& albedo) : albedo(albedo) {}
 
+    //La luz se dispersa semialeatoriamente
     bool scatter(const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered)
     const override {
         auto scatter_direction = rec.normal + random_unit_vector();
@@ -39,6 +45,7 @@ class metal : public material {
   public:
     metal(const color& albedo) : albedo(albedo) {}
 
+    //La luz se refleja
     bool scatter(const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered)
     const override {
         vec3 reflected = reflect(r_in.direction(), rec.normal);
@@ -55,6 +62,7 @@ class dielectric : public material {
   public:
     dielectric(double refraction_index) : refraction_index(refraction_index) {}
 
+    //Luz en dielectricos, es bastante dificil pero viene en el libro
     bool scatter(const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered)
     const override {
         attenuation = color(1.0, 1.0, 1.0);
@@ -90,5 +98,22 @@ class dielectric : public material {
         return r0 + (1-r0)*std::pow((1 - cosine),5);
     }
 };
+//Clase luz, que implementa iluminacion a los objetos
+class d_light : public material {
+  public:
+    d_light(const color& emission) : emit(emission) {}
 
+    //Material emisivo no dispersa rayos.
+    virtual bool scatter(const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered) const override {
+        return false;
+    }
+
+    //Luz emitida
+    color emitted(double u, double v, const point3& p) const override {
+        return emit;
+    }
+
+  private:
+    color emit;
+};
 #endif
