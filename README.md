@@ -1,7 +1,7 @@
 # Ray-tracing
 
 - Cosas a tener en cuenta:
-    * Ni idea de si el código funciona tal cual, pero si no es el caso debes seguir las instrucciones del inicio de: https://raytracing.github.io/books/RayTracingInOneWeekend.html
+    * El código puede no funcionar tal cual, en tal caso debes seguir las instrucciones del inicio de: https://raytracing.github.io/books/RayTracingInOneWeekend.html
     * No hay un suelo, por lo que se debe crear mediante un objeto extra, un poco ridículo lo sé.
     * La cámara puede moverse en todas direcciones mediante un sistema de centro-objetivo, pero para rotarla en ciertas direcciones depende de un vetor de referencia.
     * El viewport no es donde se ven los píxeles, es simplemente un marco de referencia para lo vectores salientes.
@@ -16,6 +16,7 @@
     * Paralelizar secciones de imagen mediante OpenMP.
     * Paralelizar generacios de vectores aleatorios por pixel mediante OpenMP.
     * Hacer antialiasing en master.
+    * Instancias de rotación para facilitación de puesta de objetos en escena.
 
 - Modificaciones importantes respecto a libro:
     * No se ha implementado antialiasing, para simplificar paralelización.
