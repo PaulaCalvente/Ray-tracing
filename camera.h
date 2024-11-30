@@ -3,6 +3,8 @@
 
 #include "hittable.h"
 #include "material.h"
+#include <omp.h>
+#include <chrono>
 
 //Clase camara, la cual incluye el renderizado, los valores de la camara y el coloreado
 class camera {
@@ -22,27 +24,61 @@ class camera {
 
     double defocus_angle = 0;           //Angulo de variacion por pixel
     double focus_dist = 10;             //Distancia entre camara y punto enfocado
+
+    // Reducción de color para sumar colores
+    #pragma omp declare reduction(+: color : omp_out = omp_out + omp_in) initializer(omp_priv = color(0,0,0))
     
     //Funcion de renderizado
     void render(const hittable& world) {
         initialize();
 
+        int num_threads = omp_get_max_threads(); // Ajusta el número de hilos
+        // int num_threads = 8; //Para ajustar manualmente hilos, útil para hacer pruebas
+        std::clog << "Numero de hilos: " << num_threads << std::endl;
+
         std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
-        //Recorre cada pixel
+
+        // Variables para medir el tiempo
+        auto start_time = std::chrono::high_resolution_clock::now(); // Tiempo inicial
+
+        // Paralelizamos el recorrido de las filas
+        #pragma omp parallel for schedule(dynamic) num_threads(num_threads)
         for (int j = 0; j < image_height; j++) {
-            std::clog << "\rScanlines remaining: " << (image_height - j) << ' ' << std::flush;
-            for (int i = 0; i < image_width; i++) {
-                color pixel_color(0,0,0);
-                //Lanza numero de rayos establecido por pixel
-                for (int sample = 0; sample < samples_per_pixel; sample++) {
+            auto elapsed_time = std::chrono::high_resolution_clock::now() - start_time;
+            double elapsed_seconds = std::chrono::duration_cast<std::chrono::seconds>(elapsed_time).count();
+            
+            int estimated_total_time = (elapsed_seconds / (j)) * image_height;
+            int remaining_time = estimated_total_time - elapsed_seconds;
+
+            // Progreso y estimación
+            #pragma omp critical
+            {
+                std::clog << "\rScanlines remaining: " << image_height-j 
+                        << " | Elapsed time: " << elapsed_seconds << "s"
+                        << " | Remaining time: " << remaining_time << "s"
+                        << std::flush;
+            }
+
+            // Cada hilo trabaja en su propia fila
+            for (int i = 0; i < image_width; ++i) {
+                color pixel_color(0, 0, 0);
+
+                // Paralelizamos la generación de rayos para este píxel
+                #pragma omp parallel for reduction(+:pixel_color) num_threads(num_threads)
+                for (int sample = 0; sample < samples_per_pixel; ++sample) {
                     ray r = get_ray(i, j);
                     pixel_color += ray_color(r, max_depth, world);
                 }
-                write_color(std::cout, pixel_color / samples_per_pixel); //Media de todos los rayos del pixel
+
+                #pragma omp critical
+                write_vector_color(std::cout, pixel_color / samples_per_pixel, i, j);
             }
         }
 
-        std::clog << "\rDone.                 \n";
+        auto end_time = std::chrono::high_resolution_clock::now(); // Tiempo final
+        int total_time = std::chrono::duration_cast<std::chrono::seconds>(end_time - start_time).count();
+
+        std::clog << "\nDone. Total time: " << total_time << " seconds.\n";
     }
 
   //Parametros privados de la camara
