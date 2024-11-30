@@ -5,8 +5,8 @@
     * Una vez esté compilado el código, se pueden guardar los resultados en un archivo .txt mediante, por ejemplo: main.exe > image.txt.
     * El .txt se puede convertir en un .ppm mediante el uso de parser_image.py.
     * GIMP puede abrir la imagen, así que te tocará abandonar el camino del bien e instalarlo.
-    * Si el código no funciona tal cual (gracioso lo sé), debes seguir las instrucciones del inicio de: https://raytracing.github.io/books/RayTracingInOneWeekend.html
-    * El número de hilos está puesto para que detecte el máximo de hilos físicos del procesador, pero esto se puede modificar manualmente para que se aproveche la memoria RAM y así tardar un poco menos (a costa de que el procesador se prenda fuego)
+    * Si el código no funciona tal cual (gracioso lo sé), debes seguir las instrucciones del inicio de: https://raytracing.github.io/books/RayTracingInOneWeekend.html.
+    * El número de hilos está puesto para que detecte el máximo de hilos físicos del procesador, pero esto se puede modificar manualmente para que se aproveche la memoria RAM y así tardar un poco menos (a costa de que el procesador se prenda fuego).
     * No hay un suelo, por lo que se debe crear mediante un objeto extra, un poco ridículo lo sé.
     * La cámara puede moverse en todas direcciones mediante un sistema de centro-objetivo, pero para rotarla en ciertas direcciones depende de un vetor de referencia.
     * El viewport no es donde se ven los píxeles, es simplemente un marco de referencia para lo vectores salientes.
@@ -17,7 +17,7 @@
     * Formato para almacenar objetos de forma externa al código.
     * Paralelizar secciones de imagen mediante OpenMP.
     * Paralelizar generacios de vectores aleatorios por pixel mediante OpenMP.
-    * Hacer antialiasing en master.
+    * Hacer antialiasing en máster.
     * Instancias de rotación para facilitación de puesta de objetos en escena.
 
 - Modificaciones importantes respecto a libro:
@@ -25,4 +25,4 @@
     * No se ha implementado antialiasing, para simplificar paralelización.
     * Ciertas partes del código han sido alteradas para mayor claridad.
     * Se ha añadido la clase triángulo.
-    * El método de difusión de luz no va mediante texturas, ya que no se han implementado.
+    * El método de difusión de luz no va mediante texturas, ya que estas no se han implementado.
