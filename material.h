@@ -9,7 +9,7 @@ class material {
     virtual ~material() = default;
 
     //Funcion a implementar que determina cantidad de luz emitida por un elemento (por defecto es 0)
-    virtual color emitted(double u, double v, const point3& p) const {
+    virtual color emitted(double u, double v, const vec3& p) const {
         return color(0,0,0);
     }
     
@@ -91,7 +91,7 @@ class dielectric : public material {
     //Ratio de refraccion de elemento respecto de entorno
     double refraction_index;
 
-    //Aproximacion de Schlick para reflectancia (ni yo lo acabo de entender, no te preocupes)
+    //Aproximacion de Schlick para reflectancia
     static double reflectance(double cosine, double refraction_index) {
         auto r0 = (1 - refraction_index) / (1 + refraction_index);
         r0 = r0*r0;
@@ -109,7 +109,7 @@ class d_light : public material {
     }
 
     //Luz emitida
-    color emitted(double u, double v, const point3& p) const override {
+    color emitted(double u, double v, const vec3& p) const override {
         return emit;
     }
 

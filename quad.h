@@ -6,7 +6,7 @@
 class quad : public hittable {
   public:
     //Constructor de quad
-    quad(const point3& Q, const vec3& u, const vec3& v, shared_ptr<material> mat)
+    quad(const vec3& Q, const vec3& u, const vec3& v, shared_ptr<material> mat)
       : Q(Q), u(u), v(v), mat(mat)
     {
         auto n = cross(u, v);
@@ -71,7 +71,7 @@ class quad : public hittable {
     }
 
   private:
-    point3 Q;
+    vec3 Q;
     vec3 u, v;
     vec3 w;
     shared_ptr<material> mat;
@@ -79,10 +79,11 @@ class quad : public hittable {
     vec3 normal;
     double D;
 };
+
 //Clase triangulos, cuya unica modificacion respecto a quad es como se determina si una zona es interior o no
 class trig : public quad {
   public:
-    trig(const point3& o, const vec3& aa, const vec3& ab, shared_ptr<material> m)
+    trig(const vec3& o, const vec3& aa, const vec3& ab, shared_ptr<material> m)
       : quad(o, aa, ab, m)
     {}
     //Funcion que determina si un rayo atraviesa zona interior

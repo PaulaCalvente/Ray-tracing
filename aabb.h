@@ -17,7 +17,7 @@ class aabb {
     }
 
     //Constructor dados dos extremos del "cubo"
-    aabb(const point3& a, const point3& b) {
+    aabb(const vec3& a, const vec3& b) {
         x = (a[0] <= b[0]) ? interval(a[0], b[0]) : interval(b[0], a[0]);
         y = (a[1] <= b[1]) ? interval(a[1], b[1]) : interval(b[1], a[1]);
         z = (a[2] <= b[2]) ? interval(a[2], b[2]) : interval(b[2], a[2]);
@@ -42,8 +42,8 @@ class aabb {
 
     //Comprueba si un rayo golpea el volumen
     bool hit(const ray& r, interval ray_t) const {
-        const point3& ray_orig = r.origin();
-        const vec3&   ray_dir  = r.direction();
+        const vec3& ray_orig = r.origin();
+        const vec3& ray_dir  = r.direction();
 
         for (int axis = 0; axis < 3; axis++) {
             const interval& ax = axis_interval(axis);
@@ -77,7 +77,7 @@ class aabb {
     static const aabb empty, universe;
 
   private:
-    //Ajuste de AABB por problemas de coma flotante (como no)
+    //Ajuste de AABB por problemas de coma flotante
     void pad_to_minimums() {
         double delta = 0.0001;
         if (x.size() < delta) x = x.expand(delta);

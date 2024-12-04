@@ -20,12 +20,12 @@ int main() {
     auto light = make_shared<d_light>(color(15, 15, 15));
 
     //Adicion de elementos al mundo junto a sus materiales
-    world.add(make_shared<quad>(point3(555,0,0), vec3(0,555,0), vec3(0,0,555), green));
-    world.add(make_shared<quad>(point3(0,0,0), vec3(0,555,0), vec3(0,0,555), red));
-    world.add(make_shared<quad>(point3(343, 554, 332), vec3(-130,0,0), vec3(0,0,-105), light));
-    world.add(make_shared<quad>(point3(0,0,0), vec3(555,0,0), vec3(0,0,555), white));
-    world.add(make_shared<quad>(point3(555,555,555), vec3(-555,0,0), vec3(0,0,-555), white));
-    world.add(make_shared<quad>(point3(0,0,555), vec3(555,0,0), vec3(0,555,0), white));
+    world.add(make_shared<quad>(vec3(555,0,0), vec3(0,555,0), vec3(0,0,555), green));
+    world.add(make_shared<quad>(vec3(0,0,0), vec3(0,555,0), vec3(0,0,555), red));
+    world.add(make_shared<quad>(vec3(343, 554, 332), vec3(-130,0,0), vec3(0,0,-105), light));
+    world.add(make_shared<quad>(vec3(0,0,0), vec3(555,0,0), vec3(0,0,555), white));
+    world.add(make_shared<quad>(vec3(555,555,555), vec3(-555,0,0), vec3(0,0,-555), white));
+    world.add(make_shared<quad>(vec3(0,0,555), vec3(555,0,0), vec3(0,555,0), white));
 
     //Crea volumenes de optimizacion bvh para cada objeto del mundo
     world = hittable_list(make_shared<bvh_node>(world));
@@ -46,9 +46,9 @@ int main() {
     //Angulo de vision (vertical)
     cam.vfov     = 40;
     //Coordenadas de camara
-    cam.lookfrom = point3(278, 278, -800);
+    cam.lookfrom = vec3(278, 278, -800);
     //Coordenadas de objetivo
-    cam.lookat   = point3(278, 278, 0);
+    cam.lookat   = vec3(278, 278, 0);
     //Vector de referencia de camara (usado para realizar ciertos giros)
     cam.vr      = vec3(0,1,0);
     //Desenfoque

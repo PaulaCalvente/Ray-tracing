@@ -7,18 +7,18 @@ class ray {
   public:
     ray() {}
     //Constructor de rayo, recibe punto de origen y direccion
-    ray(const point3& origin, const vec3& direction) : orig(origin), dir(direction) {}
+    ray(const vec3& origin, const vec3& direction) : orig(origin), dir(direction) {}
 
-    const point3& origin() const  { return orig; }
+    const vec3& origin() const  { return orig; }
     const vec3& direction() const { return dir; }
 
     //Funcion que define rayo
-    point3 at(double t) const {
+    vec3 at(double t) const {
         return orig + t*dir;
     }
 
   private:
-    point3 orig;
+    vec3 orig;
     vec3 dir;
 };
 

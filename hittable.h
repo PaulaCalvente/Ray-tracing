@@ -8,7 +8,7 @@ class material;
 //Clase para almacenar informacion de intersección entre rayo y elemento
 class hit_record {
   public:
-    point3 p;
+    vec3 p;
     vec3 normal;
     double t;
     double u;

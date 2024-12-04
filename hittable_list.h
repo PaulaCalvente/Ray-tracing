@@ -6,7 +6,7 @@
 
 #include <vector>
 
-//Clase de lista de elementos atravesables por rayo
+//Clase de lista de elementos atravesables por rayo 
 class hittable_list : public hittable {
   public:
     std::vector<shared_ptr<hittable>> objects;
@@ -23,6 +23,7 @@ class hittable_list : public hittable {
         objects.push_back(object);
         bbox = aabb(bbox, object->bounding_box());
     }
+
     //Funcion que comprueba si algun elemento del mundo es golpeado
     bool hit(const ray& r, interval ray_t, hit_record& rec) const override {
         hit_record temp_rec;

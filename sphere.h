@@ -7,13 +7,14 @@
 class sphere : public hittable {
   public:
     //Constructor de esfera, recibe centro y radio
-    sphere(const point3& center, double radius, shared_ptr<material> mat)
+    sphere(const vec3& center, double radius, shared_ptr<material> mat)
       : center(center), radius(std::fmax(0,radius)), mat(mat) {
         auto rvec = vec3(radius, radius, radius);
         //Creacion de volumen de limitacion AABB
         bbox = aabb(center - rvec, center + rvec);
 
       }
+
     //Comprueba si esfera es atravesada por rayo
     bool hit(const ray& r, interval ray_t, hit_record& rec) const override {
         //Vector inicial
@@ -53,7 +54,7 @@ class sphere : public hittable {
     aabb bounding_box() const override { return bbox; }
     
   private:
-    point3 center;
+    vec3 center;
     double radius;
     shared_ptr<material> mat;
     aabb bbox;

@@ -18,8 +18,8 @@ class camera {
     color  background;                  // Scene background color
 
     double vfov = 90;                   //Angulo vertical (fov)
-    point3 lookfrom = point3(0,0,0);    //Punto central de camara
-    point3 lookat   = point3(0,0,-1);   //Punto objetivo de camara
+    vec3 lookfrom = vec3(0,0,0);    //Punto central de camara
+    vec3 lookat   = vec3(0,0,-1);   //Punto objetivo de camara
     vec3   vr      = vec3(0,1,0);       //Vector de referencia de la camara
 
     double defocus_angle = 0;           //Angulo de variacion por pixel
@@ -84,8 +84,8 @@ class camera {
   //Parametros privados de la camara
   private:
     int    image_height;        //altura de imagen renderizada
-    point3 center;              //Centro de camara
-    point3 pixel00_loc;         //Localizacion de pixel (0,0) (del viewport)
+    vec3 center;              //Centro de camara
+    vec3 pixel00_loc;         //Localizacion de pixel (0,0) (del viewport)
     vec3   pixel_delta_u;       //Desviacion de pixel a la derecha
     vec3   pixel_delta_v;       //Desviacion de pixel hacia abajo
     vec3   u, v, w;             //Vectores base de la camara
@@ -144,7 +144,7 @@ class camera {
     }
 
     //Funcion que retorna un punto aleatorio en el disco de desenfoque de la camara
-    point3 defocus_disk_sample() const {
+    vec3 defocus_disk_sample() const {
         auto p = random_in_unit_disk();
         return center + (p[0] * defocus_disk_u) + (p[1] * defocus_disk_v);
     }
