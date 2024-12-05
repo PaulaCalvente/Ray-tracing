@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Paula\Desktop\Universidad\3º\CIMSI\Ray-tracing\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Paula\Desktop\Universidad\3º\CIMSI\Ray-tracing\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{915FF4D7-1E03-3EA4-9ECA-5B0799144C0A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
