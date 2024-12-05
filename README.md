@@ -8,6 +8,7 @@
     * Si el código no funciona tal cual (gracioso lo sé), debes seguir las instrucciones del inicio de: https://raytracing.github.io/books/RayTracingInOneWeekend.html.
     * El número de hilos está puesto para que detecte el máximo de hilos físicos del procesador, pero esto se puede modificar manualmente para que se aproveche la memoria RAM y así tardar un poco menos (a costa de que el procesador se prenda fuego).
     * No hay un suelo, por lo que se debe crear mediante un objeto extra, un poco ridículo lo sé.
+
     * La cámara puede moverse en todas direcciones mediante un sistema de centro-objetivo, pero para rotarla en ciertas direcciones depende de un vetor de referencia.
     * El viewport no es donde se ven los píxeles, es simplemente un marco de referencia para lo vectores salientes.
     * Debido a cómo funciona el renderizado de figuras planas, tanto los paralelogramos como los triángulos están en el mismo archivo. Si en algún momento esto resulta contraproducente, se puede modificar para que queden como archivos separados, puesto que meramente están juntos por una cuestión de claridad.
