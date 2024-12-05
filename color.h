@@ -14,7 +14,7 @@ inline double linear_to_gamma(double linear_component)
     return 0;
 }
 //Funcion para trazar color
-void write_color(std::ostream& out, const color& pixel_color) {
+void write_vector_color(std::ostream& out, const color& pixel_color, int i, int j) {
     //Funcion para escribir colores
     auto r = pixel_color.x();
     auto g = pixel_color.y();
@@ -31,8 +31,8 @@ void write_color(std::ostream& out, const color& pixel_color) {
     int gbyte = int(256 * intensity.clamp(g));
     int bbyte = int(256 * intensity.clamp(b));
 
-    //Escribe color de pixel
-    out << rbyte << ' ' << gbyte << ' ' << bbyte << '\n';
+    //Escribe coordenadas y color de pixel
+    out << i << ' ' << j << ' ' << rbyte << ' ' << gbyte << ' ' << bbyte << '\n';
 }
 
 #endif //Fin include guard
