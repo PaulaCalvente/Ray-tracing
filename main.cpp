@@ -7,58 +7,145 @@
 #include "material.h"
 #include "bvh.h"
 #include "quad.h"
-#include <mpi.h>
 
-//Funcion principal, donde se añaden los elementos al mundo, los volumenes de optimizacion bvh, se ajustan ciertos parametros y se ejecuta la funcion de renderizado
+// Importaciones para la lectura de datos
+#include "lector.h"
+#include "lectorCamara.h"
+
+// Función principal
 int main(int argc, char** argv) {
     MPI_Init(&argc, &argv);   // Inicialización de MPI
     clock_t start, end; // Variables para medir el tiempo que tarda en ejecutarse el programa
 
+    CSVReader lector("ruta");
+    lectorCamara lectorCam("ruta_a_camara.csv");
+
     // Creación de lista de almacenamiento (mundo)
     hittable_list world;
 
-    // Creación de materiales a usar
-    auto red = make_shared<lambertian>(color(.65, .05, .05));
-    auto white = make_shared<lambertian>(color(.73, .73, .73));
-    auto green = make_shared<lambertian>(color(.12, .45, .15));
-    auto light = make_shared<d_light>(color(15, 15, 15));
+    /////////////////////////////////////////////
+    // Procesar los registros de objetos
+    if (lector.leerCSV()) {
+        const auto& registros = lector.obtenerRegistros();
 
-    // Adición de elementos al mundo junto a sus materiales
-    world.add(make_shared<quad>(point3(555, 0, 0), vec3(0, 555, 0), vec3(0, 0, 555), green));
-    world.add(make_shared<quad>(point3(0, 0, 0), vec3(0, 555, 0), vec3(0, 0, 555), red));
-    world.add(make_shared<quad>(point3(343, 554, 332), vec3(-130, 0, 0), vec3(0, 0, -105), light));
-    world.add(make_shared<quad>(point3(0, 0, 0), vec3(555, 0, 0), vec3(0, 0, 555), white));
-    world.add(make_shared<quad>(point3(555, 555, 555), vec3(-555, 0, 0), vec3(0, 0, -555), white));
-    world.add(make_shared<quad>(point3(0, 0, 555), vec3(555, 0, 0), vec3(0, 555, 0), white));
+        for (const auto& registro : registros) {
+            std::shared_ptr<material> objMaterial;
 
-    // Creación de la cámara y configuración de parámetros
-    camera cam;
-    cam.aspect_ratio = 1.0;
-    cam.image_width = 600;
-    cam.samples_per_pixel = 400;
-    cam.max_depth = 10;
-    cam.background = color(0, 0, 0);
-    cam.vfov = 40;
-    cam.lookfrom = point3(278, 278, -800);
-    cam.lookat = point3(278, 278, 0);
-    cam.vr = vec3(0, 1, 0);
-    cam.defocus_angle = 0;
-    double focus_dist = 10;
+            // Crear el material correspondiente
+            if (registro.material == "lambertian") {
+                objMaterial = std::make_shared<lambertian>(color(registro.r, registro.g, registro.b));
+            }
+            else if (registro.material == "metal") {
+                objMaterial = std::make_shared<metal>(color(registro.r, registro.g, registro.b));
+            }
+            else if (registro.material == "d_light") {
+                objMaterial = std::make_shared<diffuse_light>(color(registro.r, registro.g, registro.b));
+            }
+            else if (registro.material == "dielectric") {
+                objMaterial = std::make_shared<dielectric>(registro.d);
+            }
+            else {
+                std::cout << "Material no válido: " << registro.material << std::endl;
+                continue;
+            }
 
-    int rank;
-    MPI_Comm_rank(MPI_COMM_WORLD, &rank); // Obtiene el nodo que está ejecutando el proceso: Nodo master --> 0
-    if (rank == 0) { // Si es el nodo master
-        start = clock(); // Comienza reloj
+            // Crear la figura correspondiente
+            if (registro.figura == "quad") {
+                world.add(std::make_shared<quad>(
+                    point3(registro.v1x, registro.v1y, registro.v1z),
+                    vec3(registro.v2x, registro.v2y, registro.v2z),
+                    vec3(registro.v3x, registro.v3y, registro.v3z),
+                    objMaterial
+                ));
+            }
+            else if (registro.figura == "trig") {
+                world.add(std::make_shared<trig>(
+                    point3(registro.v1x, registro.v1y, registro.v1z),
+                    vec3(registro.v2x, registro.v2y, registro.v2z),
+                    vec3(registro.v3x, registro.v3y, registro.v3z),
+                    objMaterial
+                ));
+            }
+            else if (registro.figura == "sphere") {
+                world.add(std::make_shared<sphere>(
+                    point3(registro.v1x, registro.v1y, registro.v1z),
+                    registro.d,
+                    objMaterial
+                ));
+            }
+            else {
+                std::cout << "Figura no válida: " << registro.figura << std::endl;
+                continue;
+            }
+        }
     }
 
-    // Función de renderizado
-    cam.render(world);
+    /////////////////////////////////////////////
+    // Configuración de la cámara
+    if (lectorCam.leerCSV()) {
+        const auto& registrosCam = lectorCam.obtenerRegistros();
 
-    if (rank == 0) {
-        end = clock();
-        double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
-        std::clog << "Time taken by program: " << time_taken << " sec " << std::endl // Muestra el tiempo que ha tardado el programa
-            << std::flush;
+        if (!registrosCam.empty()) {
+            const auto& registroCamara = registrosCam[0]; // Suponiendo que solo hay un registro para la cámara
+
+            // Asignar valores del registro al objeto `camera`
+            camera cam;
+
+            cam.aspect_ratio = registroCamara.aspect_ratio;
+            cam.image_width = registroCamara.image_width; // Si necesitas calcular a partir de aspect_ratio
+            cam.samples_per_pixel = registroCamara.samples_per_pixel;
+            cam.max_depth = registroCamara.max_depth;
+            cam.background = color(
+                registroCamara.background1,
+                registroCamara.background2,
+                registroCamara.background3
+            );
+            cam.vfov = registroCamara.vfov;
+            cam.lookfrom = point3(
+                registroCamara.lookfrom1,
+                registroCamara.lookfrom2,
+                registroCamara.lookfrom3
+            );
+            cam.lookat = point3(
+                registroCamara.lookat1,
+                registroCamara.lookat2,
+                registroCamara.lookat3
+            );
+            cam.vr = vec3(
+                registroCamara.vr1,
+                registroCamara.vr2,
+                registroCamara.vr3
+            );
+            cam.defocus_angle = registroCamara.defocus_angle;
+            double focus_dist = registroCamara.focus_dist;
+
+            // Confirmar los valores asignados
+            std::cout << "Cámara configurada con éxito:" << std::endl;
+            std::cout << "Aspect Ratio: " << cam.aspect_ratio << ", VFOV: " << cam.vfov << std::endl;
+
+            /////////////////////////////////////////////
+            // Renderizar la escena
+            int rank;
+            MPI_Comm_rank(MPI_COMM_WORLD, &rank); // Obtiene el nodo que está ejecutando el proceso: Nodo master --> 0
+            if (rank == 0) { // Si es el nodo master
+                start = clock(); // Comienza reloj
+            }
+
+            cam.render(world);
+
+            if (rank == 0) {
+                end = clock();
+                double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
+                std::clog << "Time taken by program: " << time_taken << " sec " << std::endl // Muestra el tiempo que ha tardado el programa
+                    << std::flush;
+            }
+        }
+        else {
+            std::cerr << "El archivo de configuración de la cámara está vacío o no contiene registros válidos." << std::endl;
+        }
+    }
+    else {
+        std::cerr << "No se pudo leer el archivo de configuración de la cámara." << std::endl;
     }
 
     MPI_Finalize(); // Finalización de MPI

@@ -56,6 +56,13 @@ build CMakeFiles\principal.dir\main.cpp.obj: CXX_COMPILER__principal_unscanned_D
   TARGET_COMPILE_PDB = CMakeFiles\principal.dir\
   TARGET_PDB = principal.pdb
 
+build CMakeFiles\principal.dir\lector.cpp.obj: CXX_COMPILER__principal_unscanned_Debug C$:\Users\Paula\Desktop\Universidad\3º\CIMSI\Ray-tracing\lector.cpp || cmake_object_order_depends_target_principal
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -openmp
+  OBJECT_DIR = CMakeFiles\principal.dir
+  OBJECT_FILE_DIR = CMakeFiles\principal.dir
+  TARGET_COMPILE_PDB = CMakeFiles\principal.dir\
+  TARGET_PDB = principal.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target principal
@@ -64,7 +71,7 @@ build CMakeFiles\principal.dir\main.cpp.obj: CXX_COMPILER__principal_unscanned_D
 #############################################
 # Link the executable principal.exe
 
-build principal.exe: CXX_EXECUTABLE_LINKER__principal_Debug CMakeFiles\principal.dir\main.cpp.obj
+build principal.exe: CXX_EXECUTABLE_LINKER__principal_Debug CMakeFiles\principal.dir\main.cpp.obj CMakeFiles\principal.dir\lector.cpp.obj
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
