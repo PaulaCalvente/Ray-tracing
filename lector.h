@@ -16,12 +16,10 @@ public:
         double v2x, v2y, v2z;
         double v3x, v3y, v3z;
 
-        void imprimir() const;
     };
 
     explicit CSVReader(const std::string& path);
     bool leerCSV();
-    void imprimirRegistros() const;
     const std::vector<Registro>& obtenerRegistros() const;
 
 private:
