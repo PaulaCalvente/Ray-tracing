@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
                 objMaterial = std::make_shared<metal>(color(registro.r, registro.g, registro.b));
             }
             else if (registro.material == "d_light") {
-                objMaterial = std::make_shared<diffuse_light>(color(registro.r, registro.g, registro.b));
+                objMaterial = std::make_shared<d_light>(color(registro.r, registro.g, registro.b));
             }
             else if (registro.material == "dielectric") {
                 objMaterial = std::make_shared<dielectric>(registro.d);

@@ -27,6 +27,8 @@ public:
 private:
     std::vector<Registro> registros;
     std::string filePath;
+
+    Registro procesarLinea(const std::string& line) const;
 };
 
 #endif // LECTOR_H

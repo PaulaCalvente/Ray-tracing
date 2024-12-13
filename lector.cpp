@@ -27,6 +27,16 @@ bool CSVReader::leerCSV() {
     return true;
 }
 
+
+void CSVReader::Registro::imprimir() const {
+    std::cout << "Figura: " << figura << ", Material: " << material
+        << ", R: " << r << ", G: " << g << ", B: " << b << ", D: " << d
+        << ", V1(" << v1x << ", " << v1y << ", " << v1z << ")"
+        << ", V2(" << v2x << ", " << v2y << ", " << v2z << ")"
+        << ", V3(" << v3x << ", " << v3y << ", " << v3z << ")"
+        << std::endl;
+}
+
 void CSVReader::imprimirRegistros() const {
     for (const auto& registro : registros) {
         registro.imprimir();
