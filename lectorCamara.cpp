@@ -67,17 +67,3 @@ const std::vector<lectorCamara::Registro>& lectorCamara::obtenerRegistros() cons
     return registros;
 }
 
-void lectorCamara::Registro::imprimir() const {
-    std::cout << "Aspect Ratio: " << aspect_ratio
-        << ", Image Width: " << image_width
-        << ", Samples per Pixel: " << samples_per_pixel
-        << ", Max Depth: " << max_depth
-        << ", Background: (" << background1 << ", " << background2 << ", " << background3 << ")"
-        << ", VFOV: " << vfov
-        << ", LookFrom: (" << lookfrom1 << ", " << lookfrom2 << ", " << lookfrom3 << ")"
-        << ", LookAt: (" << lookat1 << ", " << lookat2 << ", " << lookat3 << ")"
-        << ", VR: (" << vr1 << ", " << vr2 << ", " << vr3 << ")"
-        << ", Defocus Angle: " << defocus_angle
-        << ", Focus Distance: " << focus_dist
-        << std::endl;
-}

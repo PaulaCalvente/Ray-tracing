@@ -19,7 +19,6 @@ public:
         double vr1, vr2, vr3;
         double defocus_angle, focus_dist;
 
-        void imprimir() const;
     };
 
     // Constructor

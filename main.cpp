@@ -17,8 +17,8 @@ int main(int argc, char** argv) {
     MPI_Init(&argc, &argv);   // Inicialización de MPI
     clock_t start, end; // Variables para medir el tiempo que tarda en ejecutarse el programa
 
-    CSVReader lector("ruta");
-    lectorCamara lectorCam("ruta_a_camara.csv");
+    CSVReader lector("/home/jescabrub/shared/lecturaFiguras.csv");
+    lectorCamara lectorCam("/home/jescabrub/shared/lecturaCamara.csv");
 
     // Creación de lista de almacenamiento (mundo)
     hittable_list world;
@@ -118,10 +118,6 @@ int main(int argc, char** argv) {
             );
             cam.defocus_angle = registroCamara.defocus_angle;
             double focus_dist = registroCamara.focus_dist;
-
-            // Confirmar los valores asignados
-            std::cout << "Cámara configurada con éxito:" << std::endl;
-            std::cout << "Aspect Ratio: " << cam.aspect_ratio << ", VFOV: " << cam.vfov << std::endl;
 
             /////////////////////////////////////////////
             // Renderizar la escena
