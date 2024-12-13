@@ -12,7 +12,7 @@ public:
         std::string figura;
         std::string material;
         double r, g, b;
-        double d, v1x, v1y, v1z;
+        double radio, d, v1x, v1y, v1z;
         double v2x, v2y, v2z;
         double v3x, v3y, v3z;
 

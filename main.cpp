@@ -69,7 +69,7 @@ int main(int argc, char** argv) {
             else if (registro.figura == "sphere") {
                 world.add(std::make_shared<sphere>(
                     point3(registro.v1x, registro.v1y, registro.v1z),
-                    registro.d,
+                    registro.radio,
                     objMaterial
                 ));
             }

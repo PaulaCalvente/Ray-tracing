@@ -3,48 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image10.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:imagenes\\image10.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image9.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:imagenes\\image9.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image8.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:imagenes\\image8.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image7.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:imagenes\\image7.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image6.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:imagenes\\image6.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image5.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:imagenes\\image5.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image4.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:imagenes\\image4.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image3.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:imagenes\\image3.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image2.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:imagenes\\image2.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image1.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:imagenes\\image1.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:imagenes\\image.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\sphere.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:sphere.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\lector.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -55,16 +19,16 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:lector.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\lectorCamara.cpp||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:lectorCamara.cpp||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\lectorCamara.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:lectorCamara.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\lectorCamara.cpp||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:lectorCamara.cpp||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -74,143 +38,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "image10.png",
-              "DocumentMoniker": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image10.png",
-              "RelativeDocumentMoniker": "imagenes\\image10.png",
-              "ToolTip": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image10.png",
-              "RelativeToolTip": "imagenes\\image10.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-12-12T19:16:10.705Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "image9.png",
-              "DocumentMoniker": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image9.png",
-              "RelativeDocumentMoniker": "imagenes\\image9.png",
-              "ToolTip": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image9.png",
-              "RelativeToolTip": "imagenes\\image9.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-12-12T19:15:54.188Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "image8.png",
-              "DocumentMoniker": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image8.png",
-              "RelativeDocumentMoniker": "imagenes\\image8.png",
-              "ToolTip": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image8.png",
-              "RelativeToolTip": "imagenes\\image8.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-12-12T19:15:51.506Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "image7.png",
-              "DocumentMoniker": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image7.png",
-              "RelativeDocumentMoniker": "imagenes\\image7.png",
-              "ToolTip": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image7.png",
-              "RelativeToolTip": "imagenes\\image7.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-12-12T19:15:49.423Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "image6.png",
-              "DocumentMoniker": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image6.png",
-              "RelativeDocumentMoniker": "imagenes\\image6.png",
-              "ToolTip": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image6.png",
-              "RelativeToolTip": "imagenes\\image6.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-12-12T19:15:47.523Z",
+              "Title": "sphere.h",
+              "DocumentMoniker": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\sphere.h",
+              "RelativeDocumentMoniker": "sphere.h",
+              "ToolTip": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\sphere.h",
+              "RelativeToolTip": "sphere.h",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-12-13T16:17:50.546Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "image5.png",
-              "DocumentMoniker": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image5.png",
-              "RelativeDocumentMoniker": "imagenes\\image5.png",
-              "ToolTip": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image5.png",
-              "RelativeToolTip": "imagenes\\image5.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-12-12T19:15:38.029Z",
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2024-12-13T16:17:49.543Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "image4.png",
-              "DocumentMoniker": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image4.png",
-              "RelativeDocumentMoniker": "imagenes\\image4.png",
-              "ToolTip": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image4.png",
-              "RelativeToolTip": "imagenes\\image4.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-12-12T19:15:36.106Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "image3.png",
-              "DocumentMoniker": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image3.png",
-              "RelativeDocumentMoniker": "imagenes\\image3.png",
-              "ToolTip": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image3.png",
-              "RelativeToolTip": "imagenes\\image3.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-12-12T19:15:34.133Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "image2.png",
-              "DocumentMoniker": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image2.png",
-              "RelativeDocumentMoniker": "imagenes\\image2.png",
-              "ToolTip": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image2.png",
-              "RelativeToolTip": "imagenes\\image2.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-12-12T19:15:31.887Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "image1.png",
-              "DocumentMoniker": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image1.png",
-              "RelativeDocumentMoniker": "imagenes\\image1.png",
-              "ToolTip": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image1.png",
-              "RelativeToolTip": "imagenes\\image1.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-12-12T19:15:24.269Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "image.png",
-              "DocumentMoniker": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image.png",
-              "RelativeDocumentMoniker": "imagenes\\image.png",
-              "ToolTip": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\imagenes\\image.png",
-              "RelativeToolTip": "imagenes\\image.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-12-12T19:15:22.297Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 4,
               "Title": "lectorCamara.h",
               "DocumentMoniker": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\lectorCamara.h",
               "RelativeDocumentMoniker": "lectorCamara.h",
@@ -223,20 +81,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 2,
               "Title": "lector.cpp",
               "DocumentMoniker": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\lector.cpp",
               "RelativeDocumentMoniker": "lector.cpp",
               "ToolTip": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\lector.cpp",
               "RelativeToolTip": "lector.cpp",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACUAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAADsAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-12T12:43:23.582Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 6,
               "Title": "lectorCamara.cpp",
               "DocumentMoniker": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\lectorCamara.cpp",
               "RelativeDocumentMoniker": "lectorCamara.cpp",
@@ -249,26 +107,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 3,
               "Title": "lector.h",
               "DocumentMoniker": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\lector.h",
               "RelativeDocumentMoniker": "lector.h",
               "ToolTip": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\lector.h",
               "RelativeToolTip": "lector.h",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB4AAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-12-12T12:45:38.99Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 0,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "C:\\Users\\Paula\\Desktop\\Universidad\\3\u00BA\\CIMSI\\Ray-tracing\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAABjAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-05T16:19:53.492Z",
               "EditorCaption": ""

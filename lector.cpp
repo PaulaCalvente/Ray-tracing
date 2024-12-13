@@ -57,6 +57,7 @@ CSVReader::Registro CSVReader::procesarLinea(const std::string& line) const {
     std::getline(lineStream, temp, ','); registro.r = std::stod(temp);
     std::getline(lineStream, temp, ','); registro.g = std::stod(temp);
     std::getline(lineStream, temp, ','); registro.b = std::stod(temp);
+    std::getline(lineStream, temp, ','); registro.radio = std::stod(temp);
     std::getline(lineStream, temp, ','); registro.d = std::stod(temp);
     std::getline(lineStream, temp, ','); registro.v1x = std::stod(temp);
     std::getline(lineStream, temp, ','); registro.v1y = std::stod(temp);
